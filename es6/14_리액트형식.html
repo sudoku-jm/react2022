@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14_라액트형식</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head> 
+<body>
+    <div id="root">화면에 보이는 영역</div>
+    <script type="text/babel">
+        /* 
+            React CDN 링크
+            https://ko.reactjs.org/docs/cdn-links.html#gatsby-focus-wrapper
+
+            babel CDN 링크
+            https://babeljs.io/docs/en/babel-standalone
+        */
+        console.log(React)
+        console.log(ReactDOM)
+        
+        //리액트 요소 생성 원리
+        //React.createElement(태그,속성,값)
+        const el = React.createElement('h1',{},'제목1 입니다')
+        const dom = document.querySelector('#root')
+
+        ReactDOM.render(el,dom)
+        //render : 화면에 그림그리기
+        //redering : 코드가 눈으로 볼 수 있도록 그려지는 것
+
+
+
+
+    </script>
+</body>
+</html>

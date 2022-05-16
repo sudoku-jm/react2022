@@ -1,0 +1,63 @@
+day05
+책 139페이지? (183page)
+useEffect : https://ko.reactjs.org/docs/hooks-effect.html
+
+메모리누수 ? https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EB%88%84%EC%88%98
+
+컴퓨터 과학에서 메모리 누수(memory leak) 현상은 컴퓨터 프로그램이 필요하지 않은 메모리를 계속 점유하고 있는 현상이다.
+
+---
+Hooks는 React 16.8버전에 새로 추가되었습니다. Hook은 클래스 컴포넌트를 작성하지 않아도 state와 같은 특징들을 사용할 수 있습니다.
+
+Effect Hook을 사용하면 함수 컴포넌트에서 side effect를 수행할 수 있습니다.
+
+side effect : 부수효과 - 함수가 결과값을 반환하는것 외에 다른 일을 할 때
+side effect : 비동기통신 요청/응답 - Ajax
+              DOM조작, 구독/취소 등
+
+데이터 가져오기, 구독(subscription) 설정하기, 수동으로 React 컴포넌트의 DOM을 수정하는 것까지 이 모든 것이 side effects입니다. 이런 기능들(operations)을 side effect(혹은 effect)라 부르는 것이 익숙하지 않을 수도 있지만, 아마도 이전에 만들었던 컴포넌트에서 위의 기능들을 구현해보았을 것입니다.
+
+
+React의 class컴포넌트 생명주기 
+componentDidMount : 처음한번만
+componentDidUpdate : 갱신
+componentWillUnmount : 종료시
+
+함수형컴포넌트에서는 useEffect가 클래스 라이프사이클(생명주기) 3개를 합쳐놓은 처리가 가능.
+
+형식)
+useEffect(콜백함수, [의존성])
+
+형식1) mount / update - 많이 사용하지 않는다.
+useEffect(() => {
+    실행문
+})
+
+형식2) mount
+useEffect(() => {
+    실행문
+},[])
+
+형식3) mount / update : 의존값 - state, 특정 props
+useEffect(() => {
+    실행문
+},[state, props])
+
+
+형식4) mount / update : 의존값 - state, 특정 props
+useEffect(() => {
+    실행문
+
+    retutrn() => {
+        뒷정리
+    }
+
+},[state, props])
+
+:: 메모리 누수가 발생하지 않도록 정리
+
+사용범위
+1. props를 받아서 Update 할 때(갱신할 때)
+2. 외부 API (비동기 처리 - ajax)
+3. setTimeout, setInterval
+4. 외부 라이브러리

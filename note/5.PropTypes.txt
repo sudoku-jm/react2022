@@ -1,0 +1,51 @@
+https://ko.reactjs.org/docs/typechecking-with-proptypes.html
+
+​PropTypes는 전달받은 데이터의 유효성을 검증하기 위해서 다양한 유효성 검사기(Validator)를 내보냅니다. 아래 예시에서는 PropTypes.string을 사용하게 될 것입니다. prop에 유효하지 않은 값이 전달 되었을 때, 경고문이 JavaScript 콘솔을 통해 보일 것입니다. propTypes는 성능상의 이유로 개발 모드(Development mode) 에서만 확인될 것입니다.
+
+컴포넌트 props의 필수 여부를 지정하거나
+props의 Datatype을 지정할 때 사용 
+규칙에 맞지 않으면 warning 메세지 출력 - 개발모드
+
+
+import PropTypes from 'prop-types';
+
+해당컴포넌트명.propTypes = {
+    props명 : PropTypes.타입
+    props명 : PropTypes.타입.isRequired
+    props명 : PropTypes.타입.필수여부
+}
+
+ex1)
+MyComponent.propTypes = {
+  children: PropTypes.element.isRequired
+};
+
+
+ex2)
+Test6Sub.propTypes = {
+    name: PropTypes.string.isRequired,
+    age: PropTypes.number.isRequired,
+    addr: PropTypes.string,
+    tel: PropTypes.string,
+    done: PropTypes.bool,
+    color: PropTypes.string,
+    bgColor: PropTypes.string,
+};
+
+
+
+초기 Prop 값
+
+defaultProps 프로퍼티를 할당함으로써 props의 초깃값을 정의할 수 있습니다.
+
+
+// props의 초깃값을 정의합니다.
+해당컴포넌트.defaultProps = {
+  props명: '값'
+};
+
+
+// props의 초깃값을 정의합니다.
+Greeting.defaultProps = {
+  name: 'Stranger'
+};

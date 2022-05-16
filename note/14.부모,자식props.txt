@@ -1,0 +1,149 @@
+Day04 > Test3.js
+
+자식 컴포넌트간의 값을 전달할 경우 부모가 데이터 관리를 한다.
+
+Test1.js
+const Display = () => {
+    return(
+        <div>
+            
+        </div>
+    )
+}
+const Animal = () => {
+    return(
+        <div>
+            
+        </div>
+    )
+}
+const Name = () => {
+    return(
+        <div>
+
+        </div>
+    )
+}
+const Test1 = () => {
+    return (
+        <div>
+            <Name/>
+            <hr/>
+            <Animail/>
+            <hr/>
+            <Display/>
+        </div>
+    );
+};
+
+
+Name에서 input 값 입력 props 값이 Animal 값을 전달.
+Animal에 있는 값이 Display에 출력
+
+Name -> Animal -> Display 형제 컴포넌트끼리 전달하기 위해선 부모(직계부모)컴포넌트를 거쳐야함.
+
+
+---------------------------------------
+
+Test2.js
+
+props를 이용하여 형제끼리 데이터 전달 주고받는다.
+직계부모를 통해 데이터 올리고 내려받기
+
+직계부모에서 각각의 state 값을 내려주는 형태.
+const Test2 = () => {
+    const [text, setText] = useState('정이안');
+    const [ani, setAni] = useState('강아지')
+
+    const onName = (e) => {
+        const {value } = e.target
+        setText(value)
+    }
+    const onAni = (e) => {
+        const {value } = e.target
+        setAni(value)
+    }
+
+    return (
+        <div>
+            <Test2Name text={text} onName={onName}/>
+            <hr/>
+            <Test2Ani ani={ani} onAni={onAni}/>
+            <hr/>
+            <Test2Display text={text} ani={ani}/>
+        </div>
+    );
+};
+----------------------------------------
+Test3.js
+
+input 1개 = 상태값 1개
+input 3개 = 상태값 3개
+...20개, 30개 라면?
+
+useState도 객체화해서 만들어준다.
+
+key , value로 만들어준다
+
+const [form , setForm] = useState({
+    userid : '',
+    userpw : '',
+    userEmail : ''
+})
+
+form.userid .. 로 쓰지않고
+//비구조할당
+const {userid, userpw, userEmail} = form
+
+
+const changeInput = (e) => {
+    const {value , name} = e.target
+    setForm({
+        ...form, 
+        [name] : value  // name 키를 가진 값을 value 로 설정
+    })
+}
+
+...form을 이용한 스프레드 연산자로 form의 key값 들고온다.
+
+원래 하나씩할 땐 이렇게 했었다.
+const changeInput = (e) => {
+    const { value } = e.target
+    setForm({
+        ...form, 
+        ['userid'] : value
+    })
+}
+
+----
+객체명 = {
+    키 : 값
+}
+
+자바스크립트는 이렇게 불러와서 쓴다. 
+둘은 같은 효과.
+
+- 객체명.키
+- 객체명['키']
+
+form = {
+    name : '치와와',
+    age : 2
+}
+
+<값 변경 방법>
+
+form.name = 푸들
+form['name'] = 푸들
+
+
+const [form , setForm] = useState({
+    name : '',
+    age : '',
+})
+
+
+setForm({
+    ...form,
+    name : '푸들'
+})

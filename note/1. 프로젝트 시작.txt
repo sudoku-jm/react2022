@@ -1,0 +1,71 @@
+설치
+> npx create-react-app 이름
+or yarn create-react-app 이름
+
+들어가기
+> cd 이름
+
+실행
+> yarn start
+or npm start
+
+
+vscode - 터미널 - 새터미널
+
+ctrl + ~ : 터미널 열기
+
+​
+
+CRA(Create-React-App) : 리액트 프로젝트를 시작하는데 필요한 개발 환경을 세팅 해주는 도구
+
+​
+
+https://create-react-app.dev/docs/getting-started
+
+​
+
+​
+
+npx create-react-app 프로젝트명
+
+cd 프로젝트명
+
+npm start or yarn start - 실행
+
+==============================
+
+yarn create react-app 프로젝트명
+
+==============================
+
+​
+
+​
+​
+
+​
+
+CRA 명령어.
+
+Create React App을 사용해 스캐폴딩 된 프로젝트는 다음의 4가지 명령어를 제공합니다.
+
+start → React 프로젝트 개발 서버를 시작합니다.
+
+build → 배포를 위해 앱을 정적(Static) 파일로 번들(Bundle) 합니다.
+
+test → 테스트 러너(Test Runner)를 시작합니다.
+
+eject → 사용자 정의 구성(예: Webpack)을 직접 수행할 수 있도록 프로젝트를 준비합니다.
+
+​
+
+--------------------------------------------
+
+에러 발생시
+
+1. nodejs가 최신버전이 아닐 경우가 많아서 꼭 삭제하고 다시 설치해주세요
+
+2. 맥은 sudo npx create-react-app 프로젝트명 으로 npm이나 npx 쓰실 때 앞에 sudo 라는 단어를 붙여보세요
+
+3. 보안오류는 시작 - 검색 - Powershell 검색 - 우클릭 - 관리자 권한으로 실행후Set-ExecutionPolicy Unrestricted 입력해보세요
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13_spread_전개_연산자</title>
+</head> 
+<body>
+    <script>
+        const arr = ['강아지','고양이','토끼','소']
+        const arr1 = arr.concat()  //복사
+        const arr2 = [...arr]       //복사
+
+        //원본을 건드리지않고 활용
+        const arr3 = arr.concat('닭','햄스터')  
+        const arr4 = [...arr,'우산','딸기']
+        
+        //순서 앞 뒤 쉽게 넣기 가능
+        const arr5 = ['과자',...arr,'용','쥐']
+
+        console.log('arr1' , arr1)
+        console.log('arr2' , arr2)
+
+        //원본을 건드리지않고 활용 결과
+        console.log('arr3' , arr3)
+        console.log('arr4' , arr4)
+
+        console.log('arr5', arr5)   //['과자', '강아지', '고양이', '토끼', '소', '용', '쥐']
+
+        console.log('===========================================')
+
+        const dog = {
+            name : '강아지', 
+            age : 2
+        }
+
+        //수정, 갱신
+        const dog1 = {...dog , name:'치와와' , age:10}   //키 : 값 복사   
+        //키 : 값의 경우는 값이 교체된다
+        console.log(dog1)   //{name: '치와와', age: 10} 로 덮어씌워진다
+
+    </script>
+</body>
+</html>

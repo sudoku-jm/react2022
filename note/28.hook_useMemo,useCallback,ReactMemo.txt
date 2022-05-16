@@ -1,0 +1,88 @@
+(page 196) , day08 > Test1.js
+# Hooks - useMemo / React.memo
+# Hooks - useCallback
+
+(책)
+함수 호출 결과를 저장하고 캐시함.
+캐시된 값과 계산한 값을 비교해서 실제 값이 변경했을 때만 변경함.
+의존 관계 배열을 전달하지 않으면 렌더링이 일어날 때마다 값을 재계산.
+useCallBack은 값 대신 함수를 메모화한다.
+----------
+성능최적화
+
+useMemo : https://ko.reactjs.org/docs/hooks-reference.html#usememo
+React.memo : https://ko.reactjs.org/docs/react-api.html#reactmemo
+useCallback : https://ko.reactjs.org/docs/hooks-reference.html#usecallback
+
+메모이제이션된 값을 반환합니다.
+(메모이제이션 ? https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EC%9D%B4%EC%A0%9C%EC%9D%B4%EC%85%98)
+
+“생성(create)” 함수와 그것의 의존성 값의 배열을 전달하세요. useMemo는 의존성이 변경되었을 때에만 메모이제이션된 값만 다시 계산 할 것입니다. 이 최적화는 모든 렌더링 시의 고비용 계산을 방지하게 해 줍니다.
+
+useMemo로 전달된 함수는 렌더링 중에 실행된다는 것을 기억하세요. 
+통상적으로 렌더링 중에는 하지 않는 것을 이 함수 내에서 하지 마세요. 
+예를 들어, 사이드 이펙트(side effects)는 useEffect에서 하는 일이지 useMemo에서 하는 일이 아닙니다.
+
+
+----------
+----------
+
+성능최적화를 위해 사용
+useMemo / useCallback : 메모이제이션
+
+useMemo : 함수의 return값을 기억.(사용자정의)
+         context(상태관리)에 반드시 필요하다.
+         state가 있어야한다.(기억할 수 있는 것)
+         (Test3.js, Test3Sub.js)
+
+useCallback : 함수자체를 기억한다.
+            렌더링 할 때마다 함수를 만들어 주므로, 함수를 기억했다가 실행 시켜준다.(Test5.js)
+
+
+<문법>
+useMemo( callback , [의존성])
+useMemo( () => {}) , [])
+useMemo( () => {}) , [바뀌는 값])
+
+useCallback( callback , [의존성])
+useCallback( () => {}) , [])
+useCallback( () => {}) , [바뀌는 값])
+
+============
+사용자가 함수를 만들어서 return값을 처리할 경우 (return 값 기억 = useMemo)
+
+const isEven = useMemo(() => {
+    console.log("test");
+    console.log(cnt1);
+    return cnt1 % 2 === 0;
+}, [cnt1]);
+
+return (
+<div>
+    <h2>카운트 : {cnt1}</h2>
+    <button onClick={() => setCnt1((prevCnt) => prevCnt + 1)}>증가</button>
+
+    <h2>카운트 : {cnt2}</h2>
+    <button onClick={() => setCnt2((prevCnt) => prevCnt + 1)}>증가</button>
+
+    <h2>결과 : {isEven ? "짝수" : "홀수"}</h2>
+</div>
+);
+
+
+
+
+--------------
+React.memo 
+(Test7.js,Test7Sub.js)
+
+부모컴포넌트 실행 시 자식컴포넌트도 모두 실행.
+자식컴포넌트가 실행되더라도, 기존 값 기억하기.
+
+<방법1>
+export default React.memo(Test7Sub);
+<방법2>
+컴포넌트 만들 때 rscm < 으로 만들어주기
+import React, { memo } from 'react'; 넣어서 만들기
+-----------------
+react memo 예시 : (Test8.js, Test8Count.js, Test8Title.js)

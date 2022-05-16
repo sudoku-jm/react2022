@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13_spread_전개_연산자2</title>
+</head> 
+<body>
+    <script>
+        const data = [
+            {id : 1 , name:'홍길동' , age : 5},
+            {id : 2 , name:'고길동' , age : 10},
+            {id : 3 , name:'김길동' , age : 20},
+            {id : 4 , name:'강길동' , age : 30},
+            {id : 5 , name:'최길동' , age : 44},
+        ]
+
+        //복사
+        const data1 = [...data]
+        console.log(data1)
+        console.log('============================')
+        
+        //데이터 추가
+        const data2 = [
+            ...data,
+            {
+                id : 6,
+                name : '유재석',
+                age : 50
+            }
+        ]
+
+        console.log(data2)
+        console.log('============================')
+
+
+        // 문졔) id 4번 이름을 전지현, 35세로 변경
+        const data3 = data.map( (item,idx) => {
+            if(item.id === 4){
+                return{
+                    ...item,
+                    name : '전지현',
+                    age : 35
+                }
+            }else{
+                return item
+            }
+        })
+
+        console.log(data3)
+        console.log('============================')
+
+        //삼항연산자 이용
+        const data4 = data.map( item => item.id === 1? {
+            ...item,    //바꾸지 않을 값 그대로 들고오고,
+            name : '차학연',    //변경 할 값만 바꿈
+            age : 20
+        } : item )
+
+        console.log(data4)
+    </script>
+</body>
+</html>

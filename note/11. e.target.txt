@@ -1,0 +1,16 @@
+ //event, evt, e
+const onTest = (e) => {
+    console.log(e.target)       //클릭한 대상 p태그, span태그
+    console.log(e.currentTarget)    //클릭한 대상의 버튼button
+}
+
+return (
+    <div>
+        <button onClick={ onTest }>
+            <span>안녕하세요 누르세요</span>
+            <br/>
+            <br/>
+            <b>일요일 입니다.</b>
+        </button>
+    </div>
+);

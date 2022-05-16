@@ -1,0 +1,25 @@
+day07-ajax > Test5.js , sample>gallery
+
+뉴스 API Key 
+ab4fcd0499b24f01a20c052933c40261
+
+pixabay
+https://pixabay.com/api/docs/
+key : 2923385-ca284ed3f66133a8962e87e57
+
+
+--------
+뉴스
+
+https://newsapi.org/register​
+https://newsapi.org/s/south-korea-news-api
+
+---
+
+reset 설치 : https://www.npmjs.com/package/styled-reset
+
+pinterest 유형 메이슨리 
+https://www.npmjs.com/package/react-masonry-css
+
+import Masonry from 'react-masonry-css'
+----

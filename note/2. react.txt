@@ -1,0 +1,7 @@
+
+- es6기반  (Array , string - 메서드 )
+- react : 선언형
+- js : 절차형
+
+virtual dom : 가상돔
+DOM을 추상화한 가상의 객체를 메모리에 만들어 놓는 것.

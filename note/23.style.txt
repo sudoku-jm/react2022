@@ -1,0 +1,96 @@
+1. bootstrap
+react-bootstrap : https://react-bootstrap.github.io/
+설치 : https://react-bootstrap.github.io/getting-started/introduction
+
+> npm install react-bootstrap bootstrap
+> yarn add react-bootstrap bootstrap​​
+
+
+
+2. material
+https://material-ui.com/
+https://mui.com/getting-started/installation/
+
+> yarn add @mui/material @emotion/react @emotion/styled
+> yarn add @mui/material @mui/styled-engine-sc styled-components
+> yarn add @mui/icons-material
+
+
+파일명.module.css
+https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
+
+ 
+3. sass
+https://sass-guidelin.es/ko/#section
+yarn add sass
+
+4. styled-components
+yarn add styled-components  또는 npm install styled-components​
+
+3. styled-jsx
+yarn add styled-jsx
+
+===========================
+===========================
+
+부트스트랩(Test1)
+
+css 들고오기
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+각 컴포넌트 들고오기
+import Button from 'react-bootstrap/Button';
+또는 
+import { Button } from 'react-bootstrap';
+
+https://react-bootstrap.github.io/components/alerts
+
+-----
+머터리얼(Test2)
+
+https://mui.com/material-ui/react-radio-button/
+https://mui.com/material-ui/react-button/
+-----------
+module(Test3)
+
+파일명.css -> 컴포넌트단위로 재사용 , 주로 class로 작성한다.
+1. 전체 스타일로 작성 - css 폴더 > main.css 모두 스타일 작성(나쁜방법)
+2. 컴포넌트 별로 css(scss)별로 작성. 예)Todos예제처럼.
+3. 컴포넌트 별로 css(scss)별로 -> module.css / module.scss(클래스 이름의 중첩제거)
+
+ module.css / module.scss
+ - 클래스명의 중첩제거
+ - 기존 프로젝트의 css 클래스명과 중복되어도 스타일이 꼬이지 않게 유지보수
+
+ 파일명.module.css(scss)
+ import 참조변수 from './파일명.module.css'
+
+ className = {참조변수.클래스명}
+ className = {참조변수.box}
+ 이름확인 F12 => 파일명_클래스명__아무말
+-----------
+sass(Test5)
+-----------
+styled-component(Test6,Test7,Test8,Test9)
+스타일을 만들기위한 컴포넌트를 만드는 것
+
+https://styled-components.com/
+설치 확장팩 : vscode-styled-component
+
+import styled from 'styled-components';
+
+const 컴포넌트 = styled.태그``
+const 캄포넌트 = styled('태그')``
+
+예)
+const Container = styled.div``
+const Box1 = styled.section``
+const Box2 = styled('article')``
+const Box3 = styled('button')``
+
+장점
+유지보수가 용이하다
+props로 처리가 가능하다
+
+
+애니메이션 추가 시  : https://styled-components.com/docs/api#keyframes

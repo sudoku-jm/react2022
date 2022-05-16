@@ -1,0 +1,83 @@
+sample1 폴더 > Main.js(step1~step4)
+
+const Main = () => {
+    const [form, setForm] = useState({
+        username : '',
+        age : '',
+        addr : '',
+        tel : '',
+        job : '',
+        email : '',
+        sex : '',
+        inter : ''
+    })
+
+    //구조분해
+    // const {username, age, addr, tel, job, email, sex, inter} = form
+
+    //글자변경    
+    const changeInput = (e) => {
+        const {name ,value} = e.target
+        setForm({
+            ...form,
+            [name] : value
+        })
+    }
+
+    return (
+        <div className="wrap">
+            <Step1 form={form} changeInput={changeInput} />
+            <Step2 form={form} changeInput={changeInput} />
+            <Step3 form={form} />
+            <Step4 form={form} />
+        </div>
+    );
+};
+
+---
+step
+
+const [step , setStep] = useState(0)
+
+//다음
+const onNext = () => {
+    setStep(step + 1)
+}
+//이전
+const onPrev = () => {
+    setStep(step - 1)
+}
+
+ return (
+    <div className="wrap">
+        {
+            step === 0 && 
+            <Step1 form={form} changeInput={changeInput} onNext={onNext}/>
+
+        }
+        {
+            step === 1 &&
+            <Step2 form={form} changeInput={changeInput} onNext={onNext} onPrev={onPrev} />
+        }
+        {
+            step === 2 &&
+            <Step3 form={form} onNext={onNext} onPrev={onPrev}/>
+        }
+        {
+            step === 3 &&
+            <Step4 form={form} />
+        }
+    </div>
+);
+
+===============
+sample2 
+
+
+<Step3 {...form} onNext={onNext} onPrev={onPrev}/>
+
+스프레드 연산자로 데이터 전달도 가능.
+
+const Step3 = ({username, age, addr, tel, job, email, sex, inter, onNext, onPrev}) => {
+    ...
+})

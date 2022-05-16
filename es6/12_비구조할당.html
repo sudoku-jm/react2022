@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12_비구조할당</title>
+</head> 
+<body>
+    <pre>
+
+    </pre>
+    <script>
+        /* 
+            비구조할당 ( 구조분해 )
+
+            <객체>
+            객체를 선언 할 때에는 이렇게 { } 문자 안에 원하는 값들을 넣준다
+            키: 원하는 값
+            const dog = { name: '멍멍이', age: 2 };
+            dog.name , dog.age
+
+        */
+
+        const dog = {
+            name : '치와와',
+            age : 3
+        }
+
+        //방법은 2가지 있다
+        console.log( dog.name, dog.age )
+        console.log( dog["name"], dog['age'] )
+
+
+        // 비구조할당 , 구조분해
+        // const {키 , 키, 키} = 객체
+        // const {name, age} = dog
+        
+        // console.log(name ,age)
+        // 이렇게 함으로써 '키' 값만으로도 data를 더 간단히 쓸 수 있다.
+
+        const data = {
+            name : '김철수',
+            age : 20,
+            kor : 100,
+            eng : 80,
+            math : 70
+        }
+
+        //방법1
+        console.log(data.name , data.age, data.kor, data.eng, data.math)
+
+        //방법2
+        const {name, age, kor, eng, math} = data    //구조분해
+        console.log(name, age, kor, eng, math)  //간단히 사용
+</script>
+</body>
+</html>

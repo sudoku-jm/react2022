@@ -1,0 +1,9 @@
+https://ko.reactjs.org/docs/handling-events.html
+
+--
+on_+ 첫글자 대문자
+
+onClick
+
+--
+

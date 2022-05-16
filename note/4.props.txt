@@ -1,0 +1,64 @@
+React 컴포넌트의 단방향 데이터 흐름. ( 컴포넌트에 값을 전달  )
+
+​
+
+props 는 properties 의 줄임말
+
+​
+
+부모 컴포넌트에서자식 컴포넌트에 값을 전달할때 
+
+자식 컴포넌트에서 부모의 값을 받아올때 
+
+​
+
+
+React 컴포넌트는 상위 컴포넌트에서 하위 컴포넌트로 데이터(props)가 흐릅니다. 하위 컴포넌트는 전달 받은 props를 읽기만 가능하고, 쓸 수 없습니다. (READONLY)
+
+
+​
+
+https://ko.reactjs.org/docs/components-and-props.html
+
+
+
+구조분해 ,비구조할당
+
+props => 객체형식 => 객체명 props = { 사용자정의props명 : 값 }
+props => { 사용자정의props명 : 값 }
+props => { name : 강아지 }
+props = {name : 고양이}
+
+const {name} = props
+
+
+
+부모 컴포넌트에서자식 컴포넌트에 값을 전달할때  (부모->자식)
+자식 컴포넌트에서 부모의 값을 받아올때  (자식 <- 부모)
+자식에서 부모에 값을 콜백으로 전달할 때(자식 -> 부모)
+
+<자식컴포넌트 props명 = 전달값 />
+값 : 숫자,문자,논리 - {숫자},{논리값}
+
+실제로는 state, setState, 함수등을 전달한다. = {state}
+
+props명은 일반적으로 변수처럼 생각하자
+전달하는 값을 담는 변수 (한글, 영문, 숫자) , 한글x쓰지말자
+
+
+====
+const data1 = { name : '강아지' , age : 3}
+const data2 = { name : '고양이' , age : 2}
+
+return (
+    <>
+        <h2>props 설명</h2>
+        <Sub name="홍길동" age="20"/>   {/* tupeof age = string */}
+        <Sub name="김다미" age={23}/>   {/* tupeof age = number */}
+        <Sub name={data1.name} age={data1.age} />
+        <Sub name={data2.name} age={data2.age}/>
+        <Sub {...data1}/>   {/* 스프레드 연산자 */}
+        <Sub {...data2}/>
+
+    </>
+);

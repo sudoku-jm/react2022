@@ -1,0 +1,61 @@
+사용자 정의 훅
+
+day08 > Test15.js , hooks>useCounter.js
+day09 > hooks > useCounter.js , useFetch.js
+
+가져다 쓰는 hook함수는
+export default로 보내지 않는다.
+---
+useCounter.js
+
+import React, { useState } from 'react';
+
+//initialState 매개변수로 받아온다. 기본값 10
+export const useCounter = (initialState = 10) => {
+    const [state, setState] = useState( initialState )
+
+    //증가
+    const increment = () => {
+        setState(prev => prev + 1)
+    }
+    
+    //감소
+    const decrement = () => {
+        setState(prev => prev - 1)
+    }
+
+    //초기값
+    const reset = () => {
+        setState(initialState)
+    }
+
+    return {state, increment, decrement, reset}
+};
+
+--
+Test15.js
+import React from 'react';
+import { useCounter } from '../hooks/useCounter';
+//useCounter 사용자정의 훅을 불러옴. 함수지만 훅처럼 쓸 수 있다.
+
+const Test15 = () => {
+    const {state, increment, decrement, reset} = useCounter()
+    return (
+        <div>
+            <h2>사용자 정의 훅</h2>
+            <h1>카운트 : {state}</h1>
+            <p>
+                <button onClick={() => increment()}>증가</button>
+                <button onClick={() => decrement()}>감소</button>
+                <button onClick={() => reset()}>초기화</button>
+            </p>
+        </div>
+    );
+};
+
+export default Test15;
+
+
+==============
+reducer는 context, redux할 때 필수적으로 사용.
+

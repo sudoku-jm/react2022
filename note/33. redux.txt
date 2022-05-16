@@ -1,0 +1,47 @@
+설치
+
+yarn add redux
+yarn add react-redux  ( npm i react-redux )
+yarn add redux-devtools-extension ( npm i redux-devtools-extension )
+
+
+크롬부가기능
+
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ko
+
+---
+툴킷
+
+설치
+yarn add redux
+yarn add react-redux  ( npm i react-redux )
+yarn add @reduxjs/toolkit
+yarn add redux-devtools-extension ( npm i redux-devtools-extension )
+
+https://redux-toolkit.js.org/
+
+
+
+============
+Redux와 React는 독립적으로  사용될 수 있는 별개의 다른 라이브러리
+
+Redux는 자바스크립트 어플리케이션에서 흔히 쓰이는 상태관리 라이브러리
+Redux는 Angular, Vue, Ember, jQuery 또는 Vanilla JavaScript와  같은  다른  라이브러리, 프레임워크에서도 사용할 수 있다
+
+
+store 모두 한 곳에서 집중 관리
+상태는 불변(읽기 전용) 데이터 이며, 오직 액션 만이 상태 교체를 요청 할 수 있음
+리듀서(함수)를 통해 상태의 최종 값만 설정
+무엇이 일어나는지는 dispatch를 이용해서 알리며 어떻게 바꿀지는 reducer를 이용해서 state를 조작
+
+
+---
+1. 화면에 보일 UI만들기
+
+2. 리듀서 만들기
+
+3. 리듀서 합치기 : combineReducers
+
+4. index.js에 스토어 생성해서 3번 리듀서 자식(자손)컴포넌트에 전달하기
+
+5. 원하는 UI에 액션, state 연결해서 사용하기

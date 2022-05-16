@@ -1,0 +1,55 @@
+https://developer.mozilla.org/ko/docs/Web/HTML/Element/Input
+
+
+input text
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text
+
+--
+
+입력받은 값 체크 필요.
+onChange 이벤트 사용
+<input type="text" onChange={changeInput1}/>
+
+
+//event , evt , e
+//비구조할당해서도 쓸 수 있다.
+
+const changeInput1 = (e) => {
+    //setUserid(e.target.value)
+    const { value } = e.target  
+    setUserid(value)
+}
+
+value, name등 비구조할당 가능.
+{data} 를 props로 받아 data.id , id.name 처럼 안쓰고 비구조 할당 하듯이.
+
+
+//초기화
+const onReset = () => {
+    setUserid('')
+    setUserpw('')
+}
+
+<input type="text" value={userid} onChange={changeInput1}/>
+<input type="text"value={userpw} onChange={changeInput2}/>
+
+value값 연결 시켜줘야 input에서도 값이 지워진다.
+
+---
+checkbox
+
+const [isChk,setIsChk] = useState(false)
+
+const onChk = (e) => {
+    const {checked} = e.target
+    setIsChk(checked)
+}
+
+<input type="checkbox" onChange={onChk}/>
+
+
+라디오,체크박스는 e.target.checked로 가져와서 여부 확인.
+
+
+
+day03 > Test6~Test10

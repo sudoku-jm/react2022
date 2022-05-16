@@ -1,0 +1,8 @@
+# 크롬 React Developer Tools
+
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ko
+
+
+ 개발자도구 > components 
+
+ 여기서 props, hook > state 값을 확인

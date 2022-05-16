@@ -1,0 +1,33 @@
+day03 / sample1 / Business.js
+
+assets/api에 데이터를 저장하여 export 시키는 법.
+import 참조변수 from '경로/파일명.js' - js 생략
+
+----
+import dataList from '../assets/api/businessData'
+
+const Business = () => {
+    const [data ,setData] = useState(dataList)
+...
+
+단순히 화면에 뿌려만 주는 경우는 useState로 할 필요는 없다.
+----
+import data from '../assets/api/businessData'
+
+const Business = () => {
+    return(
+        <>
+            <BusinessList data={data}/>
+        </>
+    )
+...
+
+이런식으로 바로 내려도 된다.
+-----
+import dataList from '../assets/api/businessData'
+
+const Business = () => {
+    const data = useState(dataList)
+...
+
+set을 안써도 되긴한다. 그때 상황에 맞게!

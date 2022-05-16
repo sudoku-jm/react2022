@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11_indexOf</title>
+</head> 
+<body>
+    <pre>
+        https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+
+        구문
+        arr.indexOf(searchElement[, fromIndex])
+        
+        매개변수
+        searchElement
+        배열에서 찾을 요소입니다.
+
+        fromIndex Optional
+        검색을 시작할 색인입니다. 인덱스가 배열의 길이보다 크거나 같은 경우 -1이 반환되므로 배열이 검색되지 않습니다. 제공된 색인 값이 음수이면 배열 끝에서부터의 오프셋 값으로 사용됩니다. 참고 : 제공된 색인이 음수이면 배열은 여전히 앞에서 뒤로 검색됩니다. 계산 된 인덱스가 0보다 작 으면 전체 배열이 검색됩니다. 기본값 : 0 (전체 배열 검색).
+        
+        반환 값
+        배열 내의 요소의 최초의 인덱스. 발견되지 않으면 -1.
+
+    </pre>
+    <script>
+        /*
+            indexOf : 해당 글자가 있는지 없는지 체크할 때 사용
+        */
+         const arr = ['고구마','감자','김치','고기','젤리','고단백','참치']
+         const txt1 = '고'
+
+         //'고'가 들어간 글자 찾기
+         const result1 = arr.filter(item => item.indexOf(txt1) !== -1)
+         console.log(result1)   //['고구마', '고기', '고단백']
+         // filter를 사용하여 해당 조건에 해당하는 것 여러개 찾아오기
+
+
+        //  String , Array 객체 공부~!
+
+        const data = [
+            {text : '공부를 하다'},
+            {text : '운동하다'},
+            {text : '수영을 하다'},
+            {text : '출근을 하다'},
+            {text : '저녁을 먹다'},
+            {text : '친구를 만나다'},
+            {text : '잠을 자다'},
+        ]
+
+        const txt2 = '하다'
+
+        //'하다'가 들어간 글자 찾기
+        const result2 = data.filter( item => item.text.indexOf(txt2) !== -1)
+        console.log(result2)    // [{...}] 배열 객체로 출력
+        //[{…}, {…}, {…}, {…}]
+
+    </script>
+</body>
+</html>

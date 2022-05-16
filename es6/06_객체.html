@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06_객체</title>
+</head> 
+<body>
+    <script>
+        const data = [
+            {id : 1, name : '강정민' , age : 23},
+            {id : 2, name : '최우식' , age : 20},
+            {id : 3, name : '홍길동' , age : 24},
+            {id : 4, name : '이지영' , age : 25},
+        ]
+        console.log(data[0].id, data[0].name, data[0].age)
+        
+        console.log('====================')
+
+        //객체 복사 추가
+        const data1 = data.concat() //copy!
+        const data2 = data.concat({id : 5,name : '고길동' , age : 40 }) //추가
+        console.log('data1',data1)  
+        console.log('data2',data2)  
+    </script>
+</body>
+</html>

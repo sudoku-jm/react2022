@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03_연산자</title>
+</head> 
+<body>
+    <script>
+        /* 
+            조건 ? true 일때 : false 일때
+            같다 === / 다르다 !== ( react 에서 )
+            true && 결과 / ( false , null , undefined ) || 결과
+        */
+
+        //React JSX문법안에서 연산자는 3개만 조건문처럼 사용가능.
+        //if , for 못씀.
+
+        //함수영역에서는 모든 연산자 제어문 사용가능
+        const test1 = true
+        const test2 = false
+        const test3 = undefined
+
+        //삼항연산자 (조건) ? (참) : (거짓)
+        const result1 = test1 === true ? '참' : '거짓'
+        console.log(result1)
+        
+        // 조건 && 조건에 대한 결과가 참일 때 결과
+        const result2 = test1 && '참에대한결과'
+        console.log(result2) //참에대한결과
+        
+        const result3 = test2 && '참에대한결과'
+        console.log(result3) // false
+        
+        // 조건 || '거짓의 결과값'
+        const result4 = test2 || 'false에대한결과'
+        console.log(result4) // false에대한결과
+
+        const result5 = test3 || '값이 존재하지 않음'
+        console.log(result5)    //값이 존재하지 않음
+
+        
+        //다중 if문처럼 사용하고 싶을 때
+        /*
+         조건1 && '결과1'
+         조건2 && '결과2'
+         조건3 && '결과3'
+         조건4 && '결과4'
+         */
+    </script>
+</body>
+</html>
